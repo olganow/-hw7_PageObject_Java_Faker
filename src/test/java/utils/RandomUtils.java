@@ -24,15 +24,8 @@ public class RandomUtils {
     private String state;
     private String city;
 
-    private String[] genders = new String[]{"Male", "Female", "Other"};
-    private String[] months = new String[]{"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
-    private String[] subjects = new String[]{"English", "Economics", "Biology", "Arts", "Math"};
-    private String[] hobbies = new String[]{"Sports", "Reading", "Music"};
-    private String[] pictures = new String[]{"mypict.png", "mypictsecond.png"};
     private String[] states = new String[]{"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
 
-
-    // Создаем HashMap для соответствия состояний и городов
     private Map<String, List<String>> citiesMap = new HashMap<>() {{
         put("NCR", List.of("Delhi", "Gurgaon", "Noida"));
         put("Uttar Pradesh", List.of("Agra", "Lucknow", "Merrut"));
@@ -53,8 +46,7 @@ public class RandomUtils {
     }
 
     public String getGender() {
-        int randomNumber = getRandomNumber(0, 3);
-        gender = genders[randomNumber];
+        gender = faker.options().option("Male", "Female", "Other");
         return gender;
     }
 
@@ -76,8 +68,8 @@ public class RandomUtils {
 
 
     public String getMonthOfBirth() {
-        int randomNumber = getRandomNumber(7, 12);
-        monthOfBirth = months[randomNumber];
+        monthOfBirth = faker.options().option("January", "February", "March", "April", "May", "June", "July",
+                "August", "September", "October", "November", "December");
         return monthOfBirth;
     }
 
@@ -88,20 +80,19 @@ public class RandomUtils {
     }
 
     public String getSubject() {
-        int randomNumber = getRandomNumber(0, 4);
-        subject = subjects[randomNumber];
+        subject = faker.options().option("Accounting", "Arts", "Biology",
+                "Chemistry", "Civics", "Commerce", "Computer Science", "Economics", "English", "Hindi",
+                "History", "Maths", "Physics", "Social Studies");
         return subject;
     }
 
     public String getHobby() {
-        int randomNumber = getRandomNumber(0, 2);
-        hobby = hobbies[randomNumber];
+        hobby = faker.options().option("Sports", "Reading", "Music");
         return hobby;
     }
 
     public String getPicture() {
-        int randomNumber = getRandomNumber(0, 2);
-        picture = pictures[randomNumber];
+        picture = faker.options().option("mypict.png", "mypictsecond.png");
         return picture;
     }
 
