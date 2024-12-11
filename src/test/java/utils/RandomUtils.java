@@ -11,7 +11,6 @@ public class RandomUtils {
 
     private String firstName;
     private String lastName;
-    private String fullName;
     private String gender;
     private String userEmail;
     private String userPhone;
@@ -27,6 +26,7 @@ public class RandomUtils {
 
     private String[] genders = new String[]{"Male", "Female", "Other"};
     private String[] months = new String[]{"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+    private String[] subjects = new String[]{"English", "Economics", "Biology", "Arts", "Math"};
     private String[] hobbies = new String[]{"Sports", "Reading", "Music"};
     private String[] pictures = new String[]{"mypict.png", "mypictsecond.png"};
     private String[] states = new String[]{"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
@@ -50,11 +50,6 @@ public class RandomUtils {
     public String getLastName() {
         lastName = faker.name().lastName();
         return lastName;
-    }
-
-    public String getFullName() {
-        fullName = faker.name().fullName();
-        return fullName;
     }
 
     public String getGender() {
@@ -93,7 +88,8 @@ public class RandomUtils {
     }
 
     public String getSubject() {
-        subject = faker.hobbit().character().toString();
+        int randomNumber = getRandomNumber(0, 4);
+        subject = subjects[randomNumber];
         return subject;
     }
 

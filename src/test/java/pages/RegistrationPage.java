@@ -73,15 +73,13 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setSubjects(String subjectOne, String subjectSecond) {
+    public RegistrationPage setSubjects(String subjectOne) {
         sublectInput.setValue(subjectOne).pressEnter();
-        sublectInput.setValue(subjectSecond).scrollTo().pressEnter();
         return this;
     }
 
     public RegistrationPage setHobby(String hobby) {
         hobbyInput.$(byText(hobby)).click();
-
         return this;
     }
 

@@ -18,7 +18,6 @@ public class RegistrationTest extends TestBase {
             monthOfbirth,
             dayOfbirth,
             subjectOne,
-            subjectSecond,
             hobby,
             picture,
             street,
@@ -52,7 +51,6 @@ public class RegistrationTest extends TestBase {
         monthOfbirth = randomUtils.getMonthOfBirth();
         dayOfbirth = randomUtils.getDayOfBirth();
         subjectOne = randomUtils.getSubject();
-        subjectSecond = randomUtils.getSubject();
         hobby = randomUtils.getHobby();
         picture = randomUtils.getPicture();
         street = randomUtils.getStreetAddress();
@@ -63,8 +61,6 @@ public class RegistrationTest extends TestBase {
 
     @Test
     void successfulFillInAndSubmitFullFormTest() {
-        System.out.println(subjectOne);
-        System.out.println(subjectSecond);
         registrationPage
                 .openPage()
                 .removeBanner()
@@ -74,7 +70,7 @@ public class RegistrationTest extends TestBase {
                 .setGender(gender)
                 .setUserNumber(phone)
                 .setDateOfBirth(dayOfbirth, monthOfbirth, yearOfBirth)
-                //    .setSubjects(subjectOne, subjectSecond)
+                .setSubjects(subjectOne)
                 .setHobby(hobby)
                 .setAvatar(picture)
                 .setAddress(street, state, city)
@@ -87,7 +83,7 @@ public class RegistrationTest extends TestBase {
                 .confirmResult(genderCellName, gender)
                 .confirmResult(phoneCellName, phone)
                 .confirmResult(birthdayCellName, dayOfbirth + " " + monthOfbirth + "," + yearOfBirth)
-                //     .confirmResult(subjectCellName, subjectOne + ", " + subjectSecond)
+                .confirmResult(subjectCellName, subjectOne)
                 .confirmResult(hobbyCellName, hobby)
                 .confirmResult(pictureCellName, picture)
                 .confirmResult(addressCellName, street)
