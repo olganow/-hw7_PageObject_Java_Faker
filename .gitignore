@@ -13,9 +13,4 @@ build/
 .gradle
 
 ### Logs ###
-*.logS_Store
-/settings.gradle
-/gradlew.bat
-/gradlew
-/gradle/wrapper/gradle-wrapper.properties
-/gradle/wrapper/gradle-wrapper.jar
+*.log
